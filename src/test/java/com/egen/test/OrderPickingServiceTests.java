@@ -162,55 +162,55 @@ public class OrderPickingServiceTests {
     }
 
     @Test
-    void createSinglePicking() {
+    public void createSinglePicking() {
         OrderPickUpDto pickupDto = pickUpService.createSingleOrder(singlePickupDto);
         Assertions.assertEquals(pickupDto, singlePickupDto);
     }
 
     @Test
-    void cancelSinglePicking() {
+    public void cancelSinglePicking() {
         OrderPickUpDto pickupDto = pickUpService.cancelSingleOrder(singlePickup.getPickUpId());
         Assertions.assertNotEquals(pickupDto.getPickUpStatus(), singlePickupDto.getPickUpStatus());
     }
 
     @Test
-    void createBatchPicking() {
+    public void createBatchPicking() {
         OrderPickUpDto pickupDto = pickUpService.createBatchOrder(batchPickupDto);
         Assertions.assertEquals(pickupDto, batchPickupDto);
     }
 
     @Test
-    void cancelBatchPicking() {
+    public void cancelBatchPicking() {
         OrderPickUpDto pickupDto = pickUpService.cancelBatchOrder(batchPickup.getPickUpId());
         Assertions.assertNotEquals(pickupDto.getPickUpStatus(), batchPickupDto.getPickUpStatus());
     }
 
     @Test
-    void findAllOrders() {
+    public void findAllOrders() {
         List<OrderPickUpDto> pickUpDtoList = pickUpService.findAllOrders();
         Assertions.assertEquals(2, pickUpDtoList.size());
         Assertions.assertEquals(3, pickUpDtoList.size());
     }
 
     @Test
-    void findSingleOrderById() {
+    public void findSingleOrderById() {
         OrderPickUpDto pickUpDto = pickUpService.findOrderById(singlePickup.getPickUpId());
         Assertions.assertEquals(pickUpDto.getPickUpId(), singlePickupDto.getPickUpId());
     }
 
     @Test
-    void findBatchOrderById() {
+    public void findBatchOrderById() {
         OrderPickUpDto pickUpDto = pickUpService.findOrderById(batchPickup.getPickUpId());
         Assertions.assertEquals(pickUpDto.getPickUpId(), batchPickupDto.getPickUpId());
     }
 
     @Test
-    void createEmployee() {
+    public void createEmployee() {
         Assertions.assertEquals(true, employeeService.createEmployee(employeeDto));
     }
 
     @Test
-    void findEmployeeById() {
+    public void findEmployeeById() {
         Assertions.assertEquals(true, employeeService.findEmployeeById(1L));
     }
 
