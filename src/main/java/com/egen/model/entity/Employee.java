@@ -22,6 +22,9 @@ public class Employee {
     public Employee() {
     }
 
+    public Employee(String empName, String empEmail) {
+    }
+
     public long getEmpId() {
         return empId;
     }
