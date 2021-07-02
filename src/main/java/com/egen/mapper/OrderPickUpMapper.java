@@ -3,7 +3,6 @@ package com.egen.mapper;
 import com.egen.model.dto.OrderPickUpDto;
 import com.egen.model.entity.OrderPickUp;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -11,8 +10,7 @@ import java.util.Optional;
 @Component
 public class OrderPickUpMapper {
 
-    @Autowired
-    ModelMapper modelMapper;
+    ModelMapper modelMapper = new ModelMapper();
 
     public OrderPickUp mapToEntity(OrderPickUpDto pickUpDto) {
         return modelMapper.map(pickUpDto, OrderPickUp.class);

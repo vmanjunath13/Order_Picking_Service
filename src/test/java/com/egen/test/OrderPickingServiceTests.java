@@ -71,6 +71,7 @@ public class OrderPickingServiceTests {
         singlePickup.setCartToteId(3L);
         Date date = new Date();
         singlePickup.setPickUpCreated(new Timestamp(date.getTime()));
+        singlePickup.setPickUpEnded(new Timestamp(date.getTime() + (1000 * 3600 * 24)));
 
         WareHouse wareHouse = new WareHouse();
         wareHouse.setWarehouseId(1L);
@@ -107,6 +108,7 @@ public class OrderPickingServiceTests {
         batchPickup.setStoreId(2L);
         batchPickup.setCartToteId(4L);
         batchPickup.setPickUpCreated(new Timestamp(date.getTime()));
+        batchPickup.setPickUpEnded(new Timestamp(date.getTime() + (1000 * 3600 * 24)));
 
         batchPickup.setWareHouse(wareHouse);
         batchPickup.setEmployee(employee);

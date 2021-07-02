@@ -15,6 +15,6 @@ public interface OrderPickUpService {
     OrderPickUpDto cancelSingleOrder(long id);
     OrderPickUpDto cancelBatchOrder(long id);
 
-    String getNumberOfPicksEachDay(long empId, Timestamp timestamp);
+//    String getNumberOfPicksEachDay(long empId, Timestamp startTime, Timestamp endTime);
 
 }

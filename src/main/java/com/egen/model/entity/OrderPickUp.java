@@ -20,6 +20,9 @@ public class OrderPickUp {
     @Column(name = "pickUpCreated")
     private Timestamp pickUpCreated;
 
+    @Column(name = "pickUpEnded")
+    private Timestamp pickUpEnded;
+
     @Column(name = "pickUpStatus")
     private PickUpStatus pickUpStatus;
 
@@ -146,5 +149,13 @@ public class OrderPickUp {
 
     public void setPickingMethod(OrderPickingMethod pickingMethod) {
         this.pickingMethod = pickingMethod;
+    }
+
+    public Timestamp getPickUpEnded() {
+        return pickUpEnded;
+    }
+
+    public void setPickUpEnded(Timestamp pickUpEnded) {
+        this.pickUpEnded = pickUpEnded;
     }
 }

@@ -81,13 +81,11 @@ public class OrderPickUpServiceImpl implements OrderPickUpService {
         return pickUpMapper.mapToDto(Optional.of(pickUpRepository.save(pickUp.get())));
     }
 
-    @Override
-    public String getNumberOfPicksEachDay(long empId, Timestamp timestamp) {
-        Date date = new Date(timestamp.getTime() + (1000 * 3600 * 24));
-        Timestamp endTime = new Timestamp(date.getTime());
-        Optional<List<OrderPickUp>> totalOrdersPickup = Optional.ofNullable(Optional.ofNullable(pickUpRepository.findAllByEmployee_EmpIdAndPickUpOrderEndTime(empId, timestamp, endTime))
-                .orElseThrow(() -> new OrderPickUpException("Orders pickedup between these time range not found")));
-        return "Total Number of orders pickup during the given time frame from the employee " + empId + " is: " + totalOrdersPickup.get().size();
-    }
+//    @Override
+//    public String getNumberOfPicksEachDay(long empId, Timestamp startTime, Timestamp endTime) {
+//        Optional<List<OrderPickUp>> totalOrdersPickup = Optional.ofNullable(Optional.ofNullable(pickUpRepository.findAllByEmployee_EmpIdAndPickUpOrderEndTime(empId, startTime, endTime))
+//                .orElseThrow(() -> new OrderPickUpException("Orders pickedup between these time range not found")));
+//        return "Total Number of orders pickup during the given time frame from the employee " + empId + " is: " + totalOrdersPickup.get().size();
+//    }
 
 }

@@ -22,6 +22,9 @@ public class OrderPickUpDto implements Serializable {
     @JsonProperty(value = "pickUpCreated")
     private Timestamp pickUpCreated;
 
+    @JsonProperty(value = "pickUpEnded")
+    private Timestamp pickUpEnded;
+
     @JsonProperty(value = "pickUpStatus")
     private PickUpStatus pickUpStatus;
 
@@ -132,5 +135,13 @@ public class OrderPickUpDto implements Serializable {
 
     public void setPickingMethod(OrderPickingMethod pickingMethod) {
         this.pickingMethod = pickingMethod;
+    }
+
+    public Timestamp getPickUpEnded() {
+        return pickUpEnded;
+    }
+
+    public void setPickUpEnded(Timestamp pickUpEnded) {
+        this.pickUpEnded = pickUpEnded;
     }
 }
