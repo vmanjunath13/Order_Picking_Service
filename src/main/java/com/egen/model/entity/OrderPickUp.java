@@ -27,9 +27,8 @@ public class OrderPickUp {
     @JoinColumn(columnDefinition = "warehouseId")
     public WareHouse wareHouse;
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(columnDefinition = "storeId")
-    public Store store;
+    @Column(name = "storeId")
+    private long storeId;
 
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(columnDefinition = "employeeId")
@@ -47,9 +46,12 @@ public class OrderPickUp {
     )
     public List<Order> orderList;
 
+    @Column(name = "cartToteId")
+    private long cartToteId;
+
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(columnDefinition = "cartToteId")
-    public List<CartTote> cartToteList;
+    @JoinColumn(columnDefinition = "toteId")
+    public List<Tote> toteList;
 
     @Column(name = "pickingMethod")
     @Enumerated(EnumType.STRING)
@@ -90,12 +92,12 @@ public class OrderPickUp {
         this.wareHouse = wareHouse;
     }
 
-    public Store getStore() {
-        return store;
+    public long getStoreId() {
+        return storeId;
     }
 
-    public void setStore(Store store) {
-        this.store = store;
+    public void setStoreId(long storeId) {
+        this.storeId = storeId;
     }
 
     public Employee getEmployee() {
@@ -122,12 +124,20 @@ public class OrderPickUp {
         this.orderList = orderList;
     }
 
-    public List<CartTote> getCartToteList() {
-        return cartToteList;
+    public long getCartToteId() {
+        return cartToteId;
     }
 
-    public void setCartToteList(List<CartTote> cartToteList) {
-        this.cartToteList = cartToteList;
+    public void setCartToteId(long cartToteId) {
+        this.cartToteId = cartToteId;
+    }
+
+    public List<Tote> getToteList() {
+        return toteList;
+    }
+
+    public void setToteList(List<Tote> toteList) {
+        this.toteList = toteList;
     }
 
     public OrderPickingMethod getPickingMethod() {

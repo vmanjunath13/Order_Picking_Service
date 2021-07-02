@@ -1,5 +1,6 @@
 package com.egen.model.dto;
 
+import com.egen.model.entity.Tote;
 import com.egen.model.enums.OrderPickingMethod;
 import com.egen.model.enums.PickUpStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -7,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.sql.rowset.serial.SerialArray;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
@@ -27,7 +27,8 @@ public class OrderPickUpDto implements Serializable {
 
     public WareHouseDto wareHouse;
 
-    public StoreDto store;
+    @JsonProperty(value = "store")
+    private long store;
 
     public EmployeeDto employee;
 
@@ -35,7 +36,9 @@ public class OrderPickUpDto implements Serializable {
 
     public List<OrderDto> orderList;
 
-    public List<CartToteDto> cartToteList;
+    private long cartToteId;
+
+    public List<Tote> toteList;
 
     @JsonProperty(value = "pickingMethod")
     private OrderPickingMethod pickingMethod;
@@ -75,11 +78,11 @@ public class OrderPickUpDto implements Serializable {
         this.wareHouse = wareHouse;
     }
 
-    public StoreDto getStore() {
+    public long getStore() {
         return store;
     }
 
-    public void setStore(StoreDto store) {
+    public void setStore(long store) {
         this.store = store;
     }
 
@@ -107,12 +110,20 @@ public class OrderPickUpDto implements Serializable {
         this.orderList = orderList;
     }
 
-    public List<CartToteDto> getCartToteList() {
-        return cartToteList;
+    public long getCartToteId() {
+        return cartToteId;
     }
 
-    public void setCartToteList(List<CartToteDto> cartToteList) {
-        this.cartToteList = cartToteList;
+    public void setCartToteId(long cartToteId) {
+        this.cartToteId = cartToteId;
+    }
+
+    public List<Tote> getToteList() {
+        return toteList;
+    }
+
+    public void setToteList(List<Tote> toteList) {
+        this.toteList = toteList;
     }
 
     public OrderPickingMethod getPickingMethod() {
